@@ -2,12 +2,12 @@
 #define		HAS_GLSL_PROGRAM_H_BEEN_INCLUDED
 
 #include <GL/glew.h>
-#include <SDL.h>
-#include <SDL_opengl.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_opengl.h>
 #include <vector>
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
-#include <hash_map>
+#include <unordered_map>
 
 enum GLSLShaderTypes
 {
@@ -53,7 +53,7 @@ private:
 	std::string				header_;
 
 	// Hash the locations of the uniforms to prevent glGet calls during frames
-	typedef std::hash_map<std::string, GLint> UniformLocations;
+   typedef std::unordered_map<std::string, GLint> UniformLocations;
 	UniformLocations		uniformLocations_;
 
 	const GLint getUniformLocation(const std::string& name);
